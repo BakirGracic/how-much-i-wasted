@@ -1,0 +1,27 @@
+{
+    "theme_color": "#d3ff0d",
+    "background_color": "#0d0d0d",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "sizes": "512x512",
+            "src": "https://howmuchiwasted.bakir.dev/favicons/icon512_maskable.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "https://howmuchiwasted.bakir.dev/favicons/icon512_rounded.png",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "any",
+    "display": "standalone",
+    "dir": "auto",
+    "lang": "en-US",
+    "name": "How much I wasted",
+    "short_name": "Time Wasted",
+    "start_url": "https://howmuchiwasted.bakir.dev/",
+    "scope": "https://howmuchiwasted.bakir.dev/",
+    "description": "Time is currency. How much have you wasted?"
+}

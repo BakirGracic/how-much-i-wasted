@@ -2,6 +2,6 @@
     @apply font-light rounded-md w-min border border-accent px-2 py-1 cursor-pointer hover:bg-accent hover:text-bg transition-all;
 }
 
-.input-type-date {
-    @apply bg-accent text-bg;
+.custom-input {
+    @apply bg-accent text-bg mb-3;
 }

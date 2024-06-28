@@ -1,27 +1,27 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import AgeTimer from "@/components/AgeTimer";
-import DatePicker from "@/components/DatePicker";
+import Timer from "@/components/Timer";
+import Picker from "@/components/Picker";
 
 export default function Home() {
-    const [inputDone, inputDoneSet] = useState(false);
-    const [date, dateSet] = useState('');
-    const [age, ageSet] = useState(0);
+    const [inputDone, inputDoneSetter] = useState(false);
+    const [DT, DTSetter] = useState('');
+    const [calculated, calculatedSetter] = useState(0);
 
     useEffect(() => {
-        const storedDate = localStorage.getItem("howmuchiwasted-client-date");
-        if (storedDate) {
-            dateSet(storedDate);
-            inputDoneSet(true);
+        const storedDT = localStorage.getItem("howmuchiwasted-client-DT");
+        if (storedDT) {
+            inputDoneSetter(true);
+            DTSetter(storedDT);
         }
     }, [])
 
-    function dateUnset() {
-        localStorage.removeItem("howmuchiwasted-client-date");
-        inputDoneSet(false);
-        dateSet('');
-        ageSet(0);
+    function inputUnset() {
+        localStorage.removeItem("howmuchiwasted-client-DT");
+        inputDoneSetter(false);
+        DTSetter('');
+        calculatedSetter(0);
     }
 
     return (
@@ -29,9 +29,9 @@ export default function Home() {
             {
                 inputDone
                 ? 
-                <AgeTimer date={date} age={age} ageSet={ageSet} resetFunc={dateUnset} />
+                <Timer _DT={DT} _calculated={calculated} calculatedSetter={calculatedSetter} inputUnset={inputUnset} />
                 :
-                <DatePicker date={date} dateSet={dateSet} inputDone={inputDoneSet} />
+                <Picker DTSetter={DTSetter} inputDoneSetter={inputDoneSetter} />
             }
         </section>
     );

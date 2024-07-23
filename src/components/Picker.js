@@ -28,7 +28,7 @@ export default function Picker({ DTSetter, inputDoneSetter }) {
     
     return (
         <div className="text-center">
-            <p className="mb-5">Tell the calculator your birt date and time</p>
+            <p className="mb-5">Tell the calculator your birthdate and time</p>
             <input className="button custom-input" type="date" value={_date} onChange={(e) => {dateSetter(e.target.value)}} />
             <div className="flex items-center justify-center">
                 <input className="button custom-input" type="number" value={_h} min={0} max={23} onChange={(e) => {hSetter(e.target.value)}} />

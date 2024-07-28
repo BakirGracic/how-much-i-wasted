@@ -8,7 +8,7 @@ export default function AgeTimer({ _DT, _calculated, calculatedSetter, inputUnse
         const currentDT = new Date();
         const birthDT = new Date(_DT);
         const ms = currentDT - birthDT;
-        const yrs = ms / (1000 * 60 * 60 * 24 * 365);
+        const yrs = ms / (1000 * 60 * 60 * 24 * 365.25); // Use 365.25 to account for leap years
         const formatted = yrs.toFixed(9);
         calculatedSetter(formatted);
     }
@@ -20,7 +20,7 @@ export default function AgeTimer({ _DT, _calculated, calculatedSetter, inputUnse
         }, 30);
 
         return () => clearInterval(interval);
-    });
+    }, []);
     
     return (
         <>

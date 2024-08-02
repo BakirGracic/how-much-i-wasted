@@ -16,13 +16,21 @@ export default function Picker({ DTSetter, inputDoneSetter }) {
         const inputDateTime = new Date(_date);
         inputDateTime.setHours(_h);
         inputDateTime.setMinutes(_m);
-
+    
+        const currentDate = new Date();
+    
+        if (inputDateTime > currentDate) {
+            alert('The selected date and time cannot be in the future');
+            return;
+        }
+    
         if (isValidDateTime(inputDateTime)) {
             localStorage.setItem('howmuchiwasted-client-DT', inputDateTime);
             DTSetter(inputDateTime)
             inputDoneSetter(true);
         } else {
             alert('Invalid date or time');
+            return;
         }
     }
     

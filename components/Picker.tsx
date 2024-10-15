@@ -95,7 +95,13 @@ export default function Picker() {
                 <label className="input input-bordered flex items-center gap-2">
                     <span className="min-w-[60px]">Year*</span>
                     <input
-                        type="text"
+                        type="number"
+                        maxLength={4}
+                        onInput={(e) => {
+                            const input = e.target as HTMLInputElement;
+                            input.value = input.value.slice(0, 4).replace(/[^0-9]/g, '');
+                        }}
+                        inputMode="numeric"
                         name="year"
                         placeholder={`1000-${new Date().getFullYear()}`}
                         value={formData.year}
@@ -107,7 +113,13 @@ export default function Picker() {
                 <label className="input input-bordered flex items-center gap-2">
                     <span className="min-w-[60px]">Month*</span>
                     <input
-                        type="text"
+                        type="number"
+                        maxLength={2}
+                        onInput={(e) => {
+                            const input = e.target as HTMLInputElement;
+                            input.value = input.value.slice(0, 2).replace(/[^0-9]/g, '');
+                        }}
+                        inputMode="numeric"
                         name="month"
                         placeholder="1-12"
                         value={formData.month}
@@ -119,7 +131,13 @@ export default function Picker() {
                 <label className="input input-bordered flex items-center gap-2">
                     <span className="min-w-[60px]">Day*</span>
                     <input
-                        type="text"
+                        type="number"
+                        maxLength={2}
+                        onInput={(e) => {
+                            const input = e.target as HTMLInputElement;
+                            input.value = input.value.slice(0, 2).replace(/[^0-9]/g, '');
+                        }}
+                        inputMode="numeric"
                         name="day"
                         placeholder="1-31"
                         value={formData.day}
@@ -131,7 +149,13 @@ export default function Picker() {
                 <label className="input input-bordered flex items-center gap-2">
                     <span className="min-w-[60px]">Hour</span>
                     <input
-                        type="text"
+                        type="number"
+                        maxLength={2}
+                        onInput={(e) => {
+                            const input = e.target as HTMLInputElement;
+                            input.value = input.value.slice(0, 2).replace(/[^0-9]/g, '');
+                        }}
+                        inputMode="numeric"
                         name="hour"
                         placeholder="0-23"
                         value={formData.hour}
@@ -143,7 +167,13 @@ export default function Picker() {
                 <label className="input input-bordered flex items-center gap-2">
                     <span className="min-w-[60px]">Minute</span>
                     <input
-                        type="text"
+                        type="number"
+                        maxLength={2}
+                        onInput={(e) => {
+                            const input = e.target as HTMLInputElement;
+                            input.value = input.value.slice(0, 2).replace(/[^0-9]/g, '');
+                        }}
+                        inputMode="numeric"
                         name="minute"
                         placeholder="0-59"
                         value={formData.minute}
@@ -156,7 +186,7 @@ export default function Picker() {
             </div>
 
             {/* submit */}
-            <button className="btn btn-primary mt-8">Submit</button>
+            <button className="btn btn-primary mt-8">Surprise me!</button>
         </form>
     );
 }

@@ -1,4 +1,5 @@
 import "@/styles/tailwind-base.css";
+import "@/styles/tailwind-config.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {

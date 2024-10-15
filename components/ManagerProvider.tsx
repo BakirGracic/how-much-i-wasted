@@ -40,9 +40,7 @@ export const ManagerProvider = () => {
     
     return (
         <ManagerContext.Provider value={{ dtValid, setDtValid, lsDt, setLsDt }}>
-            {dtValid === undefined ? (
-                <span className="loading loading-spinner loading-lg"></span>
-            ) : dtValid ? (
+            {dtValid ? (
                 <Counter />
             ) : (
                 <Picker />

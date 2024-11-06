@@ -32,7 +32,7 @@ export default function Picker() {
 
     const validate = () => {
         let valid = true;
-        let newErrors = { year: "", month: "", day: "", hour: "", minute: "" };
+        const newErrors = { year: "", month: "", day: "", hour: "", minute: "" };
         const currentYear = new Date().getFullYear();
 
         if (

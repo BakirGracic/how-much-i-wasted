@@ -16,31 +16,31 @@ export default function Counter() {
         localStorage.removeItem(process.env.NEXT_PUBLIC_LS_KEY || "");
     };
 
-    const calculateVerbose = () => {
-        const dt = new Date(lsDt);
-        const now = new Date();
-
-        const diff = now.getTime() - dt.getTime();
-
-        const seconds = Math.floor(diff / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-        const days = Math.floor(hours / 24);
-
-        setVerbose(`${days}d ${hours % 24}h ${minutes % 60}m ${seconds % 60}s`);
-    };
-
-    const calculateShort = () => {
-        const dt = new Date(lsDt);
-        const now = new Date();
-
-        const diff = now.getTime() - dt.getTime();
-        const years = diff / (1000 * 60 * 60 * 24 * 365.25);
-
-        setShort(years.toFixed(9));
-    };
-
     useEffect(() => {
+        const calculateVerbose = () => {
+            const dt = new Date(lsDt);
+            const now = new Date();
+    
+            const diff = now.getTime() - dt.getTime();
+    
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+    
+            setVerbose(`${days}d ${hours % 24}h ${minutes % 60}m ${seconds % 60}s`);
+        };
+    
+        const calculateShort = () => {
+            const dt = new Date(lsDt);
+            const now = new Date();
+    
+            const diff = now.getTime() - dt.getTime();
+            const years = diff / (1000 * 60 * 60 * 24 * 365.25);
+    
+            setShort(years.toFixed(9));
+        };
+
         const minuteInterval = setInterval(() => {
             calculateVerbose();
         }, 1000);
@@ -56,7 +56,7 @@ export default function Counter() {
             clearInterval(minuteInterval);
             clearInterval(secondInterval);
         };
-    }, []);
+    }, [lsDt]);
 
     return (
         <>

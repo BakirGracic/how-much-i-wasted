@@ -1,31 +1,48 @@
 name: Next.js CD
 
+concurrency:
+    group: production
+    cancel-in-progress: true
+
 on:
     push:
-        branches: ["main"]
+        branches:
+            - main
+        paths-ignore:
+            - '.github/**'
+    workflow_dispatch:
 
 jobs:
     build-and-deploy:
         runs-on: self-hosted
+        environment: production
 
         steps:
+            - name: Stop PM2
+              run: pm2 stop all
+
             - name: Checkout
               uses: actions/checkout@v4
 
             - name: Use Node.js (22.x)
               uses: actions/setup-node@v4
               with:
-                  node-version: "22.x"
-                  cache: "npm"
+                  node-version: '22.x'
+                  cache: 'npm'
 
             - name: Delete Old Folders
               run: rm -rf node_modules/ .next/
 
             - name: Install Dependencies
-              run: npm install
+              run: npm install --legacy-peer-deps
+
+            - name: Disable Next.js Telemetry
+              run: npx next telemetry disable
 
             - name: Build
               run: npm run build
+              env:
+                  GA_ID: ${{ secrets.GA_ID }}
 
             - name: Restart PM2
               run: pm2 restart all

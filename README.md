@@ -1,9 +1,11 @@
-# howmuchiwasted.bakir.dev | How much time have you wasted?
+# howmuchiwasted.bakir.dev
 
-## Check how much time of your life you spent, or wasted, and take action!
+### How much time have you wasted?
 
-Built with Next.js and DaisyUI for self-improvement!
+### Check how much time of your life you spent, or wasted, and take action!
 
-## License
+### Built with Next.js and DaisyUI for self-improvement!
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+### License
+
+This project is licensed with MIT License

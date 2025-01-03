@@ -23,7 +23,7 @@ jobs:
               uses: actions/setup-node@v4
 
             - name: Install Dependencies
-              run: npm ci
+              run: rm -rf node_modules && npm i --force
 
             - name: Build NextJS
               env:

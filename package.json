@@ -14,7 +14,7 @@
         "react-dom": "^19.0.0"
     },
     "devDependencies": {
-        "@next/third-parties": "^15.0.4",
+        "@next/third-parties": "^15.1.4",
         "@types/node": "^22",
         "@types/react": "^19",
         "@types/react-dom": "^19",

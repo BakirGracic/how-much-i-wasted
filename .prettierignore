@@ -1,0 +1,15 @@
+node_modules/
+
+.next/
+
+**/images/**/*
+
+**/*.{jpg,jpeg,png,gif,svg,webp,mp4,avi,mov,wmv,mkv,flv,webm,ogg}
+
+public/
+
+.prettierignore
+
+.gitignore
+
+.env*

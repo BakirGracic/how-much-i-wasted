@@ -1,39 +1,35 @@
 name: Next.js CD
 
 concurrency:
-    group: production
-    cancel-in-progress: true
+  group: production
+  cancel-in-progress: true
 
 on:
-    push:
-        branches:
-            - main
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-    build-and-deploy:
-        runs-on: self-hosted
-        environment: production
+  build-and-deploy:
+    runs-on: self-hosted
+    environment: production
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Use Node.js (22.x)
-              uses: actions/setup-node@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
 
-            - name: Install Dependencies
-              run: rm -rf node_modules && npm i --force
+      - name: Install Dependencies
+        run: npm ci
 
-            - name: Build NextJS
-              env:
-                  GA_ID: ${{ secrets.GA_ID }}
-              run: |
-                  npx next telemetry disable
-                  pm2 stop 0
-                  rm -rf .next
-                  npm run build
+      - name: Build Next.js
+        run: |
+          npx next telemetry disable
+          npm run build
 
-            - name: Start NextJS
-              run: |
-                  pm2 restart 0 --update-env
+      - name: Start Next.js
+        run: |
+          pm2 reload all --update-env

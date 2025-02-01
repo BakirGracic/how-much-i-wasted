@@ -1,0 +1,9 @@
+@import 'tailwindcss' source(none);
+
+@source "../../src";
+
+@plugin "daisyui" {
+	themes: cyberpunk --default, cyberpunk --prefersdark;
+}
+
+@import './global.css';
